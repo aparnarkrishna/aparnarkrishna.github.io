@@ -1,0 +1,450 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aparna R Krishna - Portfolio</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background-color: #FAF8F5;
+            color: #3E2723;
+            line-height: 1.6;
+            scroll-behavior: smooth;
+        }
+
+        /* Navigation */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(250, 248, 245, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            box-shadow: 0 2px 10px rgba(62, 39, 35, 0.1);
+            z-index: 1000;
+        }
+
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+
+        nav a {
+            text-decoration: none;
+            color: #3E2723;
+            font-weight: 500;
+            transition: color 0.3s;
+            padding: 0.5rem 1rem;
+        }
+
+        nav a:hover {
+            color: #795548;
+        }
+
+        /* Sections */
+        section {
+            min-height: 100vh;
+            padding: 6rem 2rem 4rem;
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        h1 {
+            font-size: 3rem;
+            color: #3E2723;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease;
+        }
+
+        h2 {
+            font-size: 2.5rem;
+            color: #3E2723;
+            margin-bottom: 2rem;
+            border-bottom: 3px solid #795548;
+            padding-bottom: 0.5rem;
+            display: inline-block;
+        }
+
+        h3 {
+            font-size: 1.5rem;
+            color: #795548;
+            margin-bottom: 1rem;
+        }
+
+        p {
+            font-size: 1.1rem;
+            margin-bottom: 1rem;
+            color: #5D4037;
+        }
+
+        /* Home Section */
+        #home {
+            text-align: center;
+            background: linear-gradient(135deg, #FAF8F5 0%, #F5F2ED 100%);
+        }
+
+        .subtitle {
+            font-size: 1.3rem;
+            color: #795548;
+            margin-bottom: 2rem;
+        }
+
+        .cta-button {
+            display: inline-block;
+            padding: 1rem 2rem;
+            background-color: #795548;
+            color: #FAF8F5;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: all 0.3s;
+            margin-top: 1rem;
+        }
+
+        .cta-button:hover {
+            background-color: #5D4037;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(121, 85, 72, 0.3);
+        }
+
+        /* About Section */
+        #about {
+            background-color: #FAF8F5;
+        }
+
+        /* Skills Section */
+        #skills {
+            background-color: #F5F2ED;
+        }
+
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .skill-category {
+            background-color: #FAF8F5;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid #D7CCC8;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .skill-category:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(62, 39, 35, 0.1);
+        }
+
+        .skill-category ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .skill-category li {
+            padding: 0.5rem 0;
+            color: #5D4037;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .skill-category li:before {
+            content: "▪";
+            color: #795548;
+            position: absolute;
+            left: 0;
+        }
+
+        /* Projects Section */
+        #projects {
+            background-color: #FAF8F5;
+        }
+
+        .project-card {
+            background-color: #F5F2ED;
+            padding: 2rem;
+            border-radius: 10px;
+            border: 2px solid #D7CCC8;
+            margin-top: 2rem;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(62, 39, 35, 0.15);
+        }
+
+        .project-title {
+            color: #795548;
+            font-size: 1.4rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+        }
+
+        /* Education Section */
+        #education {
+            background-color: #F5F2ED;
+        }
+
+        .education-item {
+            background-color: #FAF8F5;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #795548;
+            margin-bottom: 2rem;
+        }
+
+        /* Experience Section */
+        #experience {
+            background-color: #FAF8F5;
+        }
+
+        .experience-item {
+            background-color: #F5F2ED;
+            padding: 2rem;
+            border-radius: 10px;
+            border-left: 4px solid #795548;
+            margin-bottom: 2rem;
+        }
+
+        .experience-item ul {
+            margin-top: 1rem;
+            margin-left: 2rem;
+        }
+
+        .experience-item li {
+            color: #5D4037;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Contact Section */
+        #contact {
+            background-color: #F5F2ED;
+            text-align: center;
+        }
+
+        .contact-links {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 2rem;
+        }
+
+        .contact-link {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 1rem 2rem;
+            background-color: #795548;
+            color: #FAF8F5;
+            text-decoration: none;
+            border-radius: 5px;
+            transition: all 0.3s;
+            font-weight: 500;
+        }
+
+        .contact-link:hover {
+            background-color: #5D4037;
+            transform: translateY(-3px);
+            box-shadow: 0 5px 15px rgba(121, 85, 72, 0.3);
+        }
+
+        /* Animations */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+
+            h2 {
+                font-size: 1.8rem;
+            }
+
+            nav ul {
+                gap: 1rem;
+            }
+
+            nav a {
+                font-size: 0.9rem;
+                padding: 0.3rem 0.7rem;
+            }
+
+            section {
+                padding: 5rem 1rem 3rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav>
+        <ul>
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="#skills">Skills</a></li>
+            <li><a href="#projects">Projects</a></li>
+            <li><a href="#education">Education</a></li>
+            <li><a href="#experience">Experience</a></li>
+            <li><a href="#contact">Contact</a></li>
+        </ul>
+    </nav>
+
+    <!-- Home Section -->
+    <section id="home">
+        <h1>Hi, I'm Aparna R Krishna</h1>
+        <p class="subtitle">Final-Year B.Tech Student | Electronics and Communication Engineering</p>
+        <p>I enjoy creating and building projects with a focus on innovation and simplicity.</p>
+        <a href="#contact" class="cta-button">Get In Touch</a>
+    </section>
+
+    <!-- About Section -->
+    <section id="about">
+        <h2>About Me</h2>
+        <p>Hi, I'm Aparna R Krishna, a final-year B.Tech student in Electronics and Communication Engineering. I enjoy learning new technologies and applying them in projects that combine creativity and engineering.</p>
+        <p>I'm skilled in Verilog/VHDL, Arduino, and circuit design, and I use tools like Canva and Google Docs to design and present my work effectively.</p>
+    </section>
+
+    <!-- Skills Section -->
+    <section id="skills">
+        <h2>Skills</h2>
+        <div class="skills-grid">
+            <div class="skill-category">
+                <h3>Technical Skills</h3>
+                <ul>
+                    <li>Verilog / VHDL</li>
+                    <li>Arduino</li>
+                    <li>Circuit Design</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Tools & Software</h3>
+                <ul>
+                    <li>Canva</li>
+                    <li>Google Docs</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Soft Skills</h3>
+                <ul>
+                    <li>Leadership</li>
+                    <li>Communication</li>
+                    <li>Teamwork</li>
+                    <li>Problem-solving</li>
+                </ul>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects">
+        <h2>Projects</h2>
+        <div class="project-card">
+            <div class="project-title">Wet and Dry Non-Biodegradable Waste Segregation System</div>
+            <p><strong>Mini Project</strong></p>
+            <p>Developed an Arduino-based system to automatically segregate wet and dry non-biodegradable waste, promoting smart waste management and environmental awareness.</p>
+        </div>
+    </section>
+
+    <!-- Education Section -->
+    <section id="education">
+        <h2>Education</h2>
+        <div class="education-item">
+            <h3>B.Tech in Electronics and Communication Engineering</h3>
+            <p>College of Engineering, Karunagappally, APJ Abdul Kalam Technological University
+</p>
+            <p>2022 – Present</p>
+        </div>
+        <div class="education-item">
+            <h3>High School / Higher Secondary</h3>
+            <p>GHSS Sooranad, DHSE</p>
+            <p>2022</p>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience">
+        <h2>Experience & Achievements</h2>
+        <div class="experience-item">
+            <h3>Campus Ambassador – Techmaghi</h3>
+            <p><strong>2023-Present</strong></p>
+            <ul>
+                <li>Represented the organization on campus, promoted events, and engaged students</li>
+                <li>Developed leadership, communication, and networking skills</li>
+            </ul>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact">
+        <h2>Contact</h2>
+        <p>Let's connect! Feel free to reach out through any of these platforms.</p>
+        <div class="contact-links">
+            <a href="mailto:aparnarkrishna6@gmail.com" class="contact-link">📧 Email</a>
+            <a href="www.linkedin.com/in/aparna-r-krishna-29a2b2257" class="contact-link">🔗 LinkedIn</a>
+        </div>
+    </section>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Add active state to navigation based on scroll position
+        window.addEventListener('scroll', () => {
+            let current = '';
+            const sections = document.querySelectorAll('section');
+            
+            sections.forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.clientHeight;
+                if (window.pageYOffset >= sectionTop - 100) {
+                    current = section.getAttribute('id');
+                }
+            });
+
+            document.querySelectorAll('nav a').forEach(link => {
+                link.classList.remove('active');
+                if (link.getAttribute('href').slice(1) === current) {
+                    link.classList.add('active');
+                }
+            });
+        });
+    </script>
+</body>
+</html>
